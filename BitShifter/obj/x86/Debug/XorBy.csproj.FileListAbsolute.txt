@@ -1,0 +1,9 @@
+A:\C Projects\Visual Studio\XOR_By\Text_Shifter\Text_Shifter\bin\Debug\Text_Shifter.exe
+A:\C Projects\Visual Studio\XOR_By\Text_Shifter\Text_Shifter\bin\Debug\Text_Shifter.pdb
+A:\C Projects\Visual Studio\XOR_By\Text_Shifter\Text_Shifter\obj\x86\Debug\XorBy.csproj.AssemblyReference.cache
+A:\C Projects\Visual Studio\XOR_By\Text_Shifter\Text_Shifter\obj\x86\Debug\XOR_By.FrmMain.resources
+A:\C Projects\Visual Studio\XOR_By\Text_Shifter\Text_Shifter\obj\x86\Debug\XOR_By.Properties.Resources.resources
+A:\C Projects\Visual Studio\XOR_By\Text_Shifter\Text_Shifter\obj\x86\Debug\XorBy.csproj.GenerateResource.cache
+A:\C Projects\Visual Studio\XOR_By\Text_Shifter\Text_Shifter\obj\x86\Debug\XorBy.csproj.CoreCompileInputs.cache
+A:\C Projects\Visual Studio\XOR_By\Text_Shifter\Text_Shifter\obj\x86\Debug\Text_Shifter.exe
+A:\C Projects\Visual Studio\XOR_By\Text_Shifter\Text_Shifter\obj\x86\Debug\Text_Shifter.pdb
