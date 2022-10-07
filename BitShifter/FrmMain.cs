@@ -51,6 +51,20 @@ namespace XOR_By
             }
             try
             {
+                if(cbExperimental.Checked)
+                {
+                    int min = Convert.ToInt32(tbLowerRange.Text);
+                    int max = Convert.ToInt32(tbUpperRange.Text);
+                    pbSearchIteration.Minimum = min;
+                    pbSearchIteration.Maximum = max;
+                    
+                    for(;min>max;min++)
+                    {
+                        ExperimentalFunc(min, max,tbSearchString.Text);
+                        pbSearchIteration.PerformStep();
+                    }
+
+                }
                 int shiftbyval = Convert.ToInt32(tbShiftBy.Text);
                 //string filename = tbInFile.Text;
                 string tmpfile = tbInFile.Text;
@@ -140,6 +154,19 @@ namespace XOR_By
     }
            
   }
+        private bool ExperimentalFunc(int min, int max, string searchstr)
+        {
+            string searchfor = ""; // output from shift
+            for (; min > max; min++)
+            {
+
+                // meat here
+
+                if (searchfor == searchstr)
+                { return true;  }
+            }
+            return false;
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -198,6 +225,26 @@ namespace XOR_By
                 string filename = sfd.FileName;
                 tbOutFileName.Text = filename;
             }
+
+        }
+
+        private void cbExperimental_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbExperimental.Checked)
+            {
+                tbSearchString.Enabled = true;
+                tbLowerRange.Enabled = true;
+                tbUpperRange.Enabled = true;
+                
+            }
+            else
+            {
+                tbSearchString.Enabled = false;
+                tbLowerRange.Enabled = false;
+                tbUpperRange.Enabled = false;
+               
+            }
+            
 
         }
     }
