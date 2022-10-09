@@ -91,7 +91,8 @@
             "AND",
             "Bitwise Compliment",
             "Left Shift",
-            "Right Shift"});
+            "Right Shift",
+            "RC4"});
             this.cbShifter.Location = new System.Drawing.Point(179, 85);
             this.cbShifter.Margin = new System.Windows.Forms.Padding(6);
             this.cbShifter.Name = "cbShifter";
