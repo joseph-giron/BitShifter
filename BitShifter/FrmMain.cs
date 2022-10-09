@@ -142,13 +142,14 @@ namespace XOR_By
                         tbTextOut.Text = File.ReadAllText(outfile);
                         lblLength.Text = "Length: " + buffer6.Length.ToString() + " Bytes";;
                         break;
-                    case "RC4": // not working :(
-                                //File.WriteAllBytes(outfile, resultBuffer7);
+                    case "RC4": 
+
                         byte[] buffer7 = File.ReadAllBytes(tmpfile);
-                       
                         byte[] strbytes = Encoding.ASCII.GetBytes(tbShiftBy.Text);
                         byte[] rc4result=Apply_RC4(buffer7, strbytes);
+
                         tbTextOut.Text = Encoding.ASCII.GetString(rc4result);
+                        File.WriteAllBytes(outfile, rc4result);
                         break;
                 }
           
