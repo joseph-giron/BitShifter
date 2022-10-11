@@ -54,20 +54,7 @@ namespace XOR_By
             }
             try
             {
-                if(cbExperimental.Checked)
-                {
-                    int min = Convert.ToInt32(tbLowerRange.Text);
-                    int max = Convert.ToInt32(tbUpperRange.Text);
-                    pbSearchIteration.Minimum = min;
-                    pbSearchIteration.Maximum = max;
-                    
-                    for(;min>max;min++)
-                    {
-                        ExperimentalFunc(min, max,tbSearchString.Text);
-                        pbSearchIteration.PerformStep();
-                    }
-
-                }
+               
                 int shiftbyval = Convert.ToInt32(tbShiftBy.Text);
                 //string filename = tbInFile.Text;
                 string tmpfile = tbInFile.Text;
@@ -82,6 +69,7 @@ namespace XOR_By
                         {
                             resultBuffer[i] = (byte)(buffer1[i] ^ shiftbyval);
                         }
+                       
                         File.WriteAllBytes(outfile, resultBuffer);
                         tbTextOut.Text = File.ReadAllText(outfile);
                         lblLength.Text = "Length: " + buffer1.Length.ToString() + " Bytes";;
@@ -163,15 +151,27 @@ namespace XOR_By
   }
         private bool ExperimentalFunc(int min, int max, string searchstr)
         {
-            string searchfor = ""; // output from shift
-            for (; min > max; min++)
+
+            if (min == 0) { min += 1; }
+            for (; min < max; min++)
             {
+                byte[] buffer1 = File.ReadAllBytes(tbInFile.Text);
+                byte[] resultBuffer = new byte[buffer1.Length];
+                for (int i = 0; i < buffer1.Length; i++)
+                {
+                    resultBuffer[i] = (byte)(buffer1[i] ^ min);
+                }
 
-                // meat here
+                if (Encoding.ASCII.GetString(resultBuffer).Contains(searchstr))
+                {
+                    tbTextOut.Text = "Found string. Key is " + Convert.ToString(min);
+                    
+                    return true;
+                }
+                pbSearchIteration.PerformStep();
 
-                if (searchfor == searchstr)
-                { return true;  }
             }
+            tbTextOut.Text = "Failed to find string in search. Try a larger range?";
             return false;
         }
 
@@ -351,5 +351,19 @@ namespace XOR_By
             return result;
         }
 
+        private void brnSearch_Click(object sender, EventArgs e)
+        {
+            if (cbExperimental.Checked)
+            {
+                int min = Convert.ToInt32(tbLowerRange.Text);
+                int max = Convert.ToInt32(tbUpperRange.Text);
+                pbSearchIteration.Minimum = min;
+                pbSearchIteration.Maximum = max;
+                ExperimentalFunc(min, max, tbSearchString.Text);
+
+
+
+            }
+        }
     }
 }

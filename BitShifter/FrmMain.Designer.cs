@@ -48,6 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pbSearchIteration = new System.Windows.Forms.ProgressBar();
+            this.brnSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnShiftBy
@@ -186,7 +187,7 @@
             this.tbSearchString.Enabled = false;
             this.tbSearchString.Location = new System.Drawing.Point(282, 642);
             this.tbSearchString.Name = "tbSearchString";
-            this.tbSearchString.Size = new System.Drawing.Size(386, 29);
+            this.tbSearchString.Size = new System.Drawing.Size(424, 29);
             this.tbSearchString.TabIndex = 11;
             this.tbSearchString.Text = "DOS mode";
             // 
@@ -241,11 +242,22 @@
             this.pbSearchIteration.TabIndex = 12;
             this.pbSearchIteration.Value = 1;
             // 
+            // brnSearch
+            // 
+            this.brnSearch.Location = new System.Drawing.Point(565, 691);
+            this.brnSearch.Name = "brnSearch";
+            this.brnSearch.Size = new System.Drawing.Size(135, 41);
+            this.brnSearch.TabIndex = 13;
+            this.brnSearch.Text = "Search";
+            this.brnSearch.UseVisualStyleBackColor = true;
+            this.brnSearch.Click += new System.EventHandler(this.brnSearch_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 871);
+            this.Controls.Add(this.brnSearch);
             this.Controls.Add(this.pbSearchIteration);
             this.Controls.Add(this.tbSearchString);
             this.Controls.Add(this.tbUpperRange);
@@ -294,6 +306,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ProgressBar pbSearchIteration;
+        private System.Windows.Forms.Button brnSearch;
     }
 }
 
